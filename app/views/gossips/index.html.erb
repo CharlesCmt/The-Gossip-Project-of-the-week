@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gossips</title>
+  </head>
+  <body>
+    <h1 class="display-4">Welcome to my Gossip Project</h1>
+    <p class="lead">La communauté, le partage, les potins : les copains quoi !</p>
+
+    <!-- Listes des gossips -->
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col" style="width:100%;">
+            <% @gossips.each do |gossip| %>
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <a href"<%= gossip_path(gossip.id) %>" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1"><%= gossip.title %></h5>
+                      <small><%= gossip.created_at %></small>
+                    </div>
+                    <p class="mb-1">
+                      <%= gossip.content %> 
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </a>
+                </div>
+              </div>
+            </div>      
+          <% end %>
+        </div>
+      </div>
+    </div>
+ </body>
+</html>
